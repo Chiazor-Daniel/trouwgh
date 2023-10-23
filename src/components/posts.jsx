@@ -73,7 +73,7 @@ export const Posts = ({ ads, extra }) => {
               <div className="relative h-full w-full">
                 {
                   (!playing) && (
-                    <FaPlay className="absolute text-gray-200 text-4xl  inset-0 m-auto" />
+                    <FaPlay className="absolute text-gray-200 text-4xl inset-0 m-auto" />
                   )
                 }
                 <video
