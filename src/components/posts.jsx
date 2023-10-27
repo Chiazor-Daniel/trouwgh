@@ -5,6 +5,7 @@ import vid from "../../public/vid2.mp4";
 import efx from "../../public/fx.gif"
 import { useTheme } from "../context/theme";
 import {FaPlay} from "react-icons/fa"
+import {motion} from "framer-motion"
 export const Posts = ({ ads, extra }) => {
   const Post = ({ name, content, imageUrl, vidUrl }) => {
     const [like, setLike] = useState(false);
@@ -182,18 +183,30 @@ export const Posts = ({ ads, extra }) => {
   }, [extra]);
 
   return (
-    <div className="flex flex-col w-full gap-4 mt-3 md:pb-20 scroll-smooth">
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration:1, delay:1}} className="flex flex-col w-full gap-4 mt-3 md:pb-20 scroll-smooth">
       {posts.map((data, index) => (
+
         data.content && (
-          <Post
+          index >= posts.length - 2 ? 
+          <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration:3,}}>
+            <Post
+              key={index}
+              name={data.name}
+              content={data.content}
+              imageUrl={data.imageUrl}
+              vidUrl={data.vidUrl}
+            />
+          </motion.div> : (
+            <Post
             key={index}
             name={data.name}
             content={data.content}
             imageUrl={data.imageUrl}
             vidUrl={data.vidUrl}
           />
+          )
         )
       ))}
-    </div>
+    </motion.div>
   );
 };

@@ -8,6 +8,7 @@ import { usePost } from "./context/post-context";
 import { PostProvider } from "./context/post-context";
 import { useState, useEffect } from "react";
 import { Friends } from "./components/friends";
+import { ChatProvider } from "./context/chatsContext";
 
 function App() {
   let ads = false;
@@ -22,7 +23,7 @@ function App() {
   return (
     <div className={`md:h-screen flex flex-col ${theme === "dark" ? "bg-[#19202d]" : "bg-slate-100"} overflow-hidden`}>
       <Nav />
-      <div className="grid md:grid-cols-7 h-full px-2 md:px-4 lg:px-12">
+      <div className="grid md:grid-cols-7 h-full px-2 md:px-4 lg:px-12 relative">
         <Spaces />
         <div
           className={` ${
@@ -34,7 +35,11 @@ function App() {
             <Posts ads={ads} extra={lat}/>
           </PostProvider>
         </div>
-        {ads ? <Ads /> : <Friends />}
+        <div className="col-span-1">
+          <ChatProvider>
+            {ads ? <Ads /> : <Friends />}
+          </ChatProvider>
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { MdAddReaction, MdPermMedia } from 'react-icons/md';
 import { BiSolidBookOpen } from 'react-icons/bi';
-
+import { motion } from 'framer-motion';
 import { BsFillPenFill } from 'react-icons/bs';
 
 export const Post = ({onDataFromChild}) => {
@@ -46,6 +46,15 @@ export const Post = ({onDataFromChild}) => {
   };
   
   return (
+    <motion.div
+    initial={{scale: 0.5, opacity: 0}}
+    animate={{scale:1, opacity:1}}
+    transition={{
+      duration: 2,
+      type: "spring",
+      bounce: 0.4
+    }}
+    >
     <div className={`w-full rounded-xl px-3 pt-4 mt-1 ${theme === 'dark' ? 'bg-slate-800' : 'bg-slate-100'} shadow-xl top`}>
       <div className="flex gap-2 items-center">
         <img
@@ -137,5 +146,6 @@ export const Post = ({onDataFromChild}) => {
         </Modal>
       </div>
     </div>
+    </motion.div>
   );
 };
