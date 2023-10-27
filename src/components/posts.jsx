@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { FaComment, FaShare } from "react-icons/fa";
-import vid from "../../public/vid2.mp4";
 import efx from "../../public/fx.gif"
 import { useTheme } from "../context/theme";
 import {FaPlay} from "react-icons/fa"
@@ -159,13 +158,7 @@ export const Posts = ({ ads, extra }) => {
       imageUrl:
         "https://images.pexels.com/photos/4016579/pexels-photo-4016579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
-    {
-      name: "Alice Smith",
-      content: "OOOh",
-      vidUrl: vid,
-      imageUrl:
-        "https://images.pexels.com/photos/9818645/pexels-photo-9818645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
+    
     {
       name: "Bob Johnson",
       content: "The importance of data science in modern businesses.",
